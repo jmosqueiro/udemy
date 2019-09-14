@@ -4,15 +4,28 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: "Frases do dia",
-    home: Container(
-      margin: EdgeInsets.only(top: 40),
-      decoration: BoxDecoration(
-            border: Border.all(width: 3, color: Colors.white)
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text("Frases do dia"),
+        backgroundColor: Colors.green,
       ),
-      child: Image.asset(
-        "resources/mesa.jpg"
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Text("3"),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.lightGreen,
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Row(
+            children: <Widget>[
+              Text("Texto 1"),
+              Text("Texto 1"),
+            ],
+          ),
         ),
+      ),
+      ),
     ),
-  ));
+  );
 }
