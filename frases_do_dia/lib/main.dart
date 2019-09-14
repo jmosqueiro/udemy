@@ -10,14 +10,7 @@ void main() {
       margin: EdgeInsets.only(top: 40),
       decoration:
           BoxDecoration(border: Border.all(width: 3, color: Colors.white)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Text("T1"),
-          Text("t2"),
-          Text("t3"),
-        ],
-      ),
+      child: Image.asset("resources/mesa.jpg"),
     ),
   ));
 }
