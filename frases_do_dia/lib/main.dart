@@ -1,84 +1,86 @@
-import 'package:flutter/cupertino.dart';
+//Starting app from scratch (frades do dia)
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-void main() {
+void main(){
   runApp(MaterialApp(
+    home: Home(),
     debugShowCheckedModeBanner: false,
-    home: HomeStateful(),
-    ),
-  );
+  ));
 }
 
-/*
-var nome = "lee";
-*/
-
-
-class HomeStateful extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _HomeStatefulState createState() => _HomeStatefulState(); // => means return
+  _HomeState createState() => _HomeState();
 }
 
-class _HomeStatefulState extends State<HomeStateful> {
-      var _texto = "dev";
+class _HomeState extends State<Home> {
+
+  var _frases =[
+    "Frase do José:",
+    "Frase do Carlos:",
+    "Frase do Tino:",
+    "Frase do DT:",
+    "Frase do Mário:",
+    "Frase do Gonçalo:",
+  ];
+
+  var _fraseGerada = "Clique para gerar uma frase";
+
+  void _gerarFrase(){
+    // 0, 1, 2, 3, 4, 5
+    var numeroSorteado = Random().nextInt(_frases.length);
+    //print(numeroSorteado);
+    setState(() {
+    _fraseGerada = _frases[ numeroSorteado ];
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    print("Build Chamado");
     return Scaffold(
       appBar: AppBar(
         title: Text("Frases do dia"),
         backgroundColor: Colors.green,
       ),
-      body: Container(
+      body: Center(
+        child: Container(
+        padding: EdgeInsets.all(16),
+        //width: double.infinity,
+        /* decoration: BoxDecoration(
+          border: Border.all(width: 3, color: Colors.amber)
+        ), */
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
-              onPressed: (){
-                setState(() {
-                  _texto = "Curso Flutter";
-                });
-              },
-              color: Colors.amber,
-              child: Text("Click here"),
-            ),
-            Text("Nome: $_texto")
+            Image.asset("resources/logo.png"),
+            Text(
+              _fraseGerada,
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                fontSize: 17,
+                fontStyle: FontStyle.italic,
+                color: Colors.black
+              ),
+              ),
+              RaisedButton(
+                child: Text(
+                  "Nova Frase",
+                  style: TextStyle(
+                    fontSize: 23,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                  ),
+                  ),
+                color: Colors.green,
+                onPressed: _gerarFrase,
+              )
           ],
         ),
-      )
+      ),
+      ),
     );
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-    /*var _titulo = "Instagram";
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Frases do dia"),
-        backgroundColor: Colors.green,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Text("3"),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.lightGreen,
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Row(
-            children: <Widget>[
-              Text("Texto 1"),
-              Text("Texto 1"),
-            ],
-          ),
-        ),
-      ),
-      
-      
-    );*/
   }
 }
