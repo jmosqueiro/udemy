@@ -18,6 +18,13 @@ class _JogoState extends State<Jogo> {
           //img
           //text resultado
           //linha 3 imgs
+          Padding(
+            padding: EdgeInsets.only(top: 32, bottom: 16),
+            child: Text(
+              "Escolha do App",
+              textAlign: TextAlign.center,
+            ),
+          )
         ],
       ),
     );
