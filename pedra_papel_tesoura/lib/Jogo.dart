@@ -13,6 +13,7 @@ class _JogoState extends State<Jogo> {
         title: Text("Pedra papel tesoura"),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           //text
           //img
@@ -23,8 +24,13 @@ class _JogoState extends State<Jogo> {
             child: Text(
               "Escolha do App",
               textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
             ),
-          )
+          ),
+          Image.asset("assets/padrao.png")
         ],
       ),
     );
