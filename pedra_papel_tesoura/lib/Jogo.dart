@@ -9,10 +9,9 @@ class _JogoState extends State<Jogo> {
 
 var _imagemApp = AssetImage("assets/padrao.png");
 
-void opcaoSelecionada(String escolhaUser){
-
-
-
+void _opcaoSelecionada(String escolhaUser){
+  
+  print("Opção selecionada: " + escolhaUser );
 }
 
   @override
@@ -55,11 +54,17 @@ void opcaoSelecionada(String escolhaUser){
             mainAxisAlignment:  MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               GestureDetector(
-                onTap: () => opcaoSelecionada("pedra"),
+                onTap: () => _opcaoSelecionada("pedra"),
                 child: Image.asset("assets/pedra.png", height: 100,),
               ),
-              GestureDetector(),
-              GestureDetector(),
+              GestureDetector(
+                onTap: () => _opcaoSelecionada("papel"),
+                child: Image.asset("assets/papel.png", height: 100,),
+                ),
+              GestureDetector(
+                onTap: () => _opcaoSelecionada("tesoura"),
+                child: Image.asset("assets/tesoura.png", height: 100,),
+                ),
               /*
               Image.asset("assets/pedra.png", height: 100,),
               Image.asset("assets/papel.png",height: 100),
