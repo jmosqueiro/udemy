@@ -13,7 +13,7 @@ class _JogoState extends State<Jogo> {
         title: Text("Pedra papel tesoura"),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           //text
           //img
@@ -31,7 +31,25 @@ class _JogoState extends State<Jogo> {
             ),
           ),
           Image.asset("assets/padrao.png"),
-          
+          Padding(
+            padding: EdgeInsets.only(top: 32, bottom: 16),
+            child: Text(
+              "Escolha uma opção",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment:  MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Image.asset("assets/pedra.png", height: 100,),
+              Image.asset("assets/papel.png",height: 100),
+              Image.asset("assets/tesoura.png",height: 100),
+            ],
+          )
         ],
       ),
     );
