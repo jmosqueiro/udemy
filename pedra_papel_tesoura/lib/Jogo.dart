@@ -30,7 +30,8 @@ class _JogoState extends State<Jogo> {
               ),
             ),
           ),
-          Image.asset("assets/padrao.png")
+          Image.asset("assets/padrao.png"),
+          
         ],
       ),
     );
