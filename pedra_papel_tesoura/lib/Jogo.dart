@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Jogo extends StatefulWidget {
   @override
@@ -8,10 +9,60 @@ class Jogo extends StatefulWidget {
 class _JogoState extends State<Jogo> {
 
 var _imagemApp = AssetImage("assets/padrao.png");
+var _mensagem = "Escolha uma opçao abaixo";
 
 void _opcaoSelecionada(String escolhaUser){
   
-  print("Opção selecionada: " + escolhaUser );
+  var opcoes = ["pedra", "papel" , "tesoura"];
+  var numero = Random().nextInt(3);
+  var escolhaApp = opcoes[numero];
+
+  print("Escolha de App: " + escolhaApp);
+  print("Escolha do User: " + escolhaUser);
+
+  //exibiçao da img escolhida pelo App
+  switch( escolhaApp ){
+    case "pedra" :
+      setState(() {
+        this._imagemApp = AssetImage("assets/pedra.png");
+      });
+      break;
+      case "papel" :
+      setState(() {
+        this._imagemApp = AssetImage("assets/papel.png");
+      });
+      break;
+      case "tesoura" :
+      setState(() {
+        this._imagemApp = AssetImage("assets/tesoura.png");
+      });
+      break;
+  }
+
+  //Validação do ganhador
+  if (
+    (escolhaUser == "pedra" && escolhaApp =="tesoura") ||
+    (escolhaUser == "tesoura" && escolhaApp =="papel") ||
+    (escolhaUser == "papel" && escolhaApp =="pedra") 
+  ){
+    setState(() {
+      this._mensagem = "WIN";
+    });
+  }else if (
+      (escolhaApp == "pedra" && escolhaUser == "tesoura") ||
+    (escolhaApp == "tesoura" && escolhaUser == "papel") ||
+    (escolhaApp == "papel" && escolhaUser == "pedra") 
+    ){
+    setState(() {
+      this._mensagem = "LOSE";
+    });
+    } else {
+    setState(() {
+      this._mensagem = "DRAW";
+    });
+
+    }
+
 }
 
   @override
@@ -30,7 +81,7 @@ void _opcaoSelecionada(String escolhaUser){
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16),
             child: Text(
-              "Escolha do App",
+              this._mensagem,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
