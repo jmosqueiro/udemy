@@ -6,6 +6,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  TextEditingController _controllerAlcool = TextEditingController();
+  TextEditingController _controllerGasolina = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +35,26 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            TextField(),
-            TextField(),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Preco do alcool, ex : 1.53"
+              ),
+              style: TextStyle(
+                fontSize: 23,
+              ),
+              controller: _controllerAlcool,
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Preco da gasolina, ex : 1.53"
+              ),
+              style: TextStyle(
+                fontSize: 23,
+              ),
+              controller: _controllerGasolina,
+            ),
             Padding(
               padding: EdgeInsets.only(top: 10),
               child: RaisedButton(
