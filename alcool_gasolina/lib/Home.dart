@@ -20,6 +20,7 @@ class _HomeState extends State<Home> {
       body: Container(
         padding: EdgeInsets.all(23),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(bottom: 32),
@@ -58,8 +59,26 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 10),
               child: RaisedButton(
-                child: Text("Calcular"),
+                color: Colors.blue,
+                textColor: Colors.white,
+                padding: EdgeInsets.all(15),
+                child: Text(
+                  "Calcular",
+                  style: TextStyle(
+                    fontSize: 20
+                  ),
+                ),
                 onPressed: (){},
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text(
+                "#Resultado"
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold
+                ),
               ),
             )
           ],
