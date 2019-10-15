@@ -13,7 +13,12 @@ class _HomeState extends State<Home> {
         title: Text("Alcool ou gasosa"),
         backgroundColor: Colors.blue,
       ),
-      body: ,
+      body: Container(
+        padding: EdgeInsets.all(23),
+        child: Column(
+          
+        ),
+      )
     );
   }
 }
