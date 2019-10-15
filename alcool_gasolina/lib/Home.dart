@@ -23,7 +23,13 @@ class _HomeState extends State<Home> {
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 10),
-              child: Text("Saiba qual a melhor opção"),
+              child: Text(
+                "Saiba qual a melhor opção",
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
             ),
             TextField(),
             TextField(),
