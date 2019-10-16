@@ -18,8 +18,10 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blue,
       ),
       body: Container(
-        padding: EdgeInsets.all(23),
-        child: Column(
+        child: SingleChildScrollView(
+          //padding: 
+          padding: EdgeInsets.all(23),
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Padding(
@@ -74,7 +76,7 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text(
-                "#Resultado"
+                "#Resultado",
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold
@@ -82,6 +84,7 @@ class _HomeState extends State<Home> {
               ),
             )
           ],
+        ),
         ),
       )
     );
