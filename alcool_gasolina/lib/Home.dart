@@ -36,7 +36,16 @@ class _HomeState extends State<Home> {
           _textoResultado = "Melhor abastecer com alcool";
         });
       }
+      //# depois de fazer3 o calculo limpar os campos
+      _limparCampos();
     }
+  }
+
+  void _limparCampos(){
+
+    _controllerAlcool.text = "" ;
+    _controllerGasolina.text = "" ;
+
   }
 
   @override
