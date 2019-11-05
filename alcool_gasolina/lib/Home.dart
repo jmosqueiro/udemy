@@ -10,6 +10,35 @@ class _HomeState extends State<Home> {
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
 
+  String _textoResultado = "";
+
+  void _calcular(){
+
+    double precoAlcool = double.tryParse( _controllerAlcool.text );
+    double precoGasolina = double.tryParse( _controllerGasolina.text );
+
+    if (precoAlcool == null || precoGasolina == null) {
+      setState(() {
+      _textoResultado = "Numero invalido, digite numeros maiores que 0 e utilizando ponto (.)";  
+      });
+      
+    }
+    else { // faz o calculo
+      if ((precoAlcool / precoGasolina) >= 0.7) {
+
+        setState(() {
+          _textoResultado = "Melhor abastecer com gasolina";
+        });
+
+      } 
+      else {
+        setState(() {
+          _textoResultado = "Melhor abastecer com alcool";
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,13 +99,13 @@ class _HomeState extends State<Home> {
                     fontSize: 20
                   ),
                 ),
-                onPressed: (){},
+                onPressed: _calcular(),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text(
-                "#Resultado",
+                _textoResultado,
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold
