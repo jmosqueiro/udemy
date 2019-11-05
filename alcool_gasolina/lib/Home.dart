@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
                     fontSize: 20
                   ),
                 ),
-                onPressed: _calcular(),
+                onPressed: _calcular
               ),
             ),
             Padding(
