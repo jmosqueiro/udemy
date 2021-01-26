@@ -20,38 +20,39 @@ class _CampoTextoState extends State<CampoTexto> {
           Padding(
             padding: EdgeInsets.all(32),
             child: TextField(
-              // text type = text , number, email, datetime
+              //text, number, emailAddress, datetime
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: "Valor"
+                labelText: "Digite um valor"
               ),
               //enabled: false,
-              //maxLength: 3,
+              //maxLength: 2,
               //maxLengthEnforced: false,
-              //obscureText: true,
-              
               style: TextStyle(
                 fontSize: 50,
                 color: Colors.green
               ),
-              /* onChanged: (String texto){
-                  print("valor dig" + texto);
-              }, */
+              //obscureText: true,
+              /*
+              onChanged: (String texto){
+                print("valor digitado:" +  texto);
+              },*/
               onSubmitted: (String texto){
-                print("valor dig" + texto);
+                print("valor digitado:" +  texto);
               },
               controller: _textEditingController,
+
             ),
           ),
-          RaisedButton( //capturar texto com um botao - uso do controller e onSubmitted
-            child: Text("Save"),
+          RaisedButton(
+            child: Text("Salvar"),
             color: Colors.lightGreen,
             onPressed: (){
-              print("valor dig" + _textEditingController.text );
+              print("valor digitado:" +  _textEditingController.text );
             },
           )
         ],
-      )
+      ),
     );
   }
 }
